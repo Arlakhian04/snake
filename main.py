@@ -1,6 +1,9 @@
 import pygame as pg
 import numpy as np
-from map_folder.map import buildMap
+from map_folder.map import *
+from snake.snake import Snake
+from map_folder.map_const import *
+from snake.snakeCell import *
 
 pg.init()
 
@@ -20,7 +23,9 @@ run = True
 while run:
 
     map_snake.displayMap(screen)
-
+    #Winning
+   # if snake.size ==(map_snake.size[0] * map_snake.size[1] - 1):
+    #    run = False
     for event in pg.event.get():
         if event.type == pg.QUIT:
             run = False
