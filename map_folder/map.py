@@ -52,13 +52,15 @@ def buildMap(SCREEN_HEIGHT,SCREEN_WIDTH):
     map_size = (40 * 15, 40 * 17)
     map_position = (SCREEN_WIDTH / 2 - map_size[1] / 2, SCREEN_HEIGHT / 2 - map_size[0] / 2)
 
-    apple = Apple((0,0))
-    apple.change_location(cell_list)
     snake_init_index = (7,6)
     snake_init_pos = (snake_init_index[0] * CELL_SIZE,snake_init_index[1] * CELL_SIZE)
     snake_cell_list = np.empty(shape = (number_cell[0] * number_cell[1]),dtype = SnakeCell)
     snake_init_direction = (1,0)
-    snake = Snake(snake_init_pos,snake_cell_list,snake_init_direction,0,snake_init_index)
-    snake.addCell(snake_init_direction)
-    snake.addCell(snake_init_direction)
+    snake = Snake(snake_init_pos,snake_cell_list,snake_init_direction,0,snake_init_index,0)
+    snake.addCell(snake_init_direction,cell_list)
+    snake.addCell(snake_init_direction,cell_list)
+
+    apple = Apple((0,0))
+    apple.change_location(cell_list)
+
     return Map(map_size,map_position,cell_list,number_cell,apple,snake)

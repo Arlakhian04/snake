@@ -30,14 +30,23 @@ class SnakeCell:
             previous_index (tuple): Index of the previous cell
             map_cell_list (np.array(dtype = Cell)): Array with all the cells of the map
         """
-        map_cell_list[self.index[0],self.index[1]].isCellSnake = False
-        self.position = self.previous_direction
+        map_cell_list[self.index[1]][self.index[0]].isCellSnake = False
+        #print("old position: " + str(self.position[0]) + " " + str(self.position[1]))
+        self.position = self.previous_position
+        #print("new position: " + str(self.position[0]) + " " + str(self.position[1]))
+        #print("old direction: " + str(self.direction[0]) + " " + str(self.direction[1]))
         self.direction = self.previous_direction
+        #print("new direction: " + str(self.direction[0]) + " " + str(self.direction[1]))
+        #print("old index: " + str(self.index[0]) + " " + str(self.index[1]))
         self.index = self.previous_index
+        #print("new index: " + str(self.index[0]) + " " + str(self.index[1]))
         self.previous_position = previous_position
         self.previous_direction = previous_direction
         self.previous_index = previous_index
-        map_cell_list[self.index[0],self.index[1]].isCellSnake = True
+        #print("new previous position: " + str(self.previous_position[0]) + " " + str(self.previous_position[1]))
+        #print("new previous direction: " + str(self.previous_direction[0]) + " " + str(self.previous_direction[1]))
+        #print("new previous index: " + str(self.previous_index[0]) + " " + str(self.previous_index[1]))
+        map_cell_list[self.index[1]][self.index[0]].isCellSnake = True
 
     def displayCellSnake(self,surface,color):
         pg.draw.rect(surface,color,(self.position[0],self.position[1], CELL_SIZE,CELL_SIZE))

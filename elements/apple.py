@@ -18,8 +18,9 @@ class Apple:
     def change_location(self,cell_list):
         self.position = (-1,-1)
         while self.position[0] == -1:
-            x = random.randint(1,number_cell[0] - 1)
-            y = random.randint(1,number_cell[1] - 1)
-            if(not cell_list[x][y].isCellSnake):
+            x = random.randint(1,number_cell[1] - 1)
+            y = random.randint(1,number_cell[0] - 1)
+            if(not cell_list[y][x].isCellSnake):
                 self.position = (x,y)
+                print (str(self.position))
         
