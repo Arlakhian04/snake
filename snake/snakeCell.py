@@ -14,3 +14,15 @@ class SnakeCell:
         self.direction = direction
         self.previous_direction = previous_direction
         self.isLast = isLast
+
+    def move(self,previous_position,previous_direction):
+        """Function to move the cell
+
+        Args:
+            previous_position (tuple): Position of the previous cell
+            previous_direction (tuple): Direction of the previous cell
+        """
+        self.position = self.previous_direction
+        self.direction = self.previous_direction
+        self.previous_position = previous_position
+        self.previous_direction = previous_direction

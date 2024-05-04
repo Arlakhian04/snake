@@ -12,3 +12,7 @@ class Snake:
         self.cell_list = cell_list
         self.direction = direction
         self.size = size
+
+    def addCell(self):
+        """Add a Cell to the cell_list
+        """
